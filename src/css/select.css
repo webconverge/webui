@@ -1,0 +1,113 @@
+
+
+/*
+
+    html template
+
+*/
+
+/*
+
+    <wui-select>
+        <button>
+            <span></span>
+            <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <ul>
+            <li><button>one</button></li>
+            <li><button>two</button></li>
+            <li><button>three</button></li>
+            <li><button>four</button></li>
+        </ul>
+    </wui-select>
+
+*/
+
+
+
+/*
+
+    style
+
+*/
+
+wui-select{
+    width:100px;
+    display:flex;
+    position:relative;
+
+     /* global styling */
+    *{
+        padding:0;
+        margin:0;
+    }
+    li{
+        list-style-type:none;
+    }
+    button{
+        border-width:0;
+        background-color:transparent;
+    }
+
+    /* placeholder */
+    &>button{
+        display:flex;
+        justify-content:space-between;
+        flex-grow:1;
+        padding:5px;
+        border:1px solid var(--wui-rosy-brown);
+        background-color:white;
+
+        i{
+            transition:transform 0.5s;
+
+            &[open]{
+                transform:rotate(180deg);
+            }
+        }
+    }
+
+    /* item list */
+    ul{
+        position:absolute;
+        top:calc(100% + 5px);
+        flex-direction:column;
+        background-color:var(--wui-taupe-gray);
+        width:100%;
+        display:flex;
+        max-height:0;
+        overflow:hidden;
+        transition:max-height 0.5s;
+
+        &[open]{
+            max-height:500px;
+        }
+
+        /* item */
+        li{
+            display:contents;
+
+            &:not(:last-child) > button{
+                border-bottom:1px solid var(--wui-rosy-brown);
+            }
+
+            /* item btn */
+            button{
+                padding:5px;
+    
+                &[selected]{
+                    font-weight:bold;
+                    background-color:var(--wui-rosy-brown);
+                }
+    
+                &:hover{
+                    font-weight:bold;
+                    background-color:var(--wui-rosy-brown);
+                }
+            }
+        }
+    }
+}
+
+
+
