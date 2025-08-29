@@ -1,0 +1,153 @@
+
+
+/*
+
+    html template
+
+*/
+
+/*
+
+    <wui-nav-00>
+        <a href="">My Site</a>
+        <div></div>
+        <div>
+            <button><i class="fa-solid fa-xmark"></i></button>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <button><i class="fa-solid fa-bars"></i></button>
+    </wui-nav-00>
+
+
+*/
+
+/*
+
+    style
+
+*/
+
+wui-nav-00{
+    width:100%;
+    height:70px;
+    display:flex;
+    gap:40px;
+    align-items:center;
+    justify-content: space-around;
+    background-color:var(--wui-aquamarine-2);
+    position:sticky;
+    top:0;
+    left:0;
+    z-index:1;
+
+    /* global styling */
+    *{
+        padding:0;
+        margin:0;
+    }
+    li{
+        list-style-type:none;
+    }
+    a{
+        text-decoration:none;
+        color:inherit;
+    }
+    button{
+        display:none;
+        font-size:1.2rem;
+        border-width:0;
+        background-color:transparent;
+        cursor:pointer;
+    }
+
+    /* site name */
+    &>a{
+        font-size:1.5rem;
+    }
+
+    /* nav wrapper */
+    &>div:last-of-type{
+        display:contents;
+
+        &[mobile]{
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+            position:fixed;
+            width:250px;
+            left:-250px;
+            top:0;
+            transition:left 0.5s;
+            padding:10px;
+            box-sizing:border-box;
+            background-color:var(--wui-taupe-gray);
+            height:100vh;
+            /* z-index:1; */
+
+            /* nav-item */
+            li{
+                text-align:center;
+                
+                &:hover{
+                    color:var(--wui-light-cyan);
+                }
+            }
+
+        }
+        
+        &[nav-open]{
+            left:0;
+        }
+
+        /* icon nav close */
+        button{
+            align-self:end;
+        }
+    }
+
+    /* nav */
+    ul{
+        display:flex;
+        gap:20px;
+
+        &[mobile]{
+            flex-direction:column;
+        }
+    }
+
+    /* nav item */
+    li{
+        font-size:1.2rem;
+        &:hover{
+            color:var(--wui-taupe-gray);
+        }
+    }
+
+    /* page overlay */
+    &>div:first-of-type{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100vw;
+        height:100vh;
+        background-color:rgba(0,0,0,0.5);
+        display:none;
+
+        &[nav-open]{
+            display:initial;
+        }
+    }
+
+    /* icons */
+    button[mobile]{
+        display:initial;
+    }
+
+
+
+}
+

@@ -47,6 +47,7 @@ wui-select{
     button{
         border-width:0;
         background-color:transparent;
+        cursor:pointer;
     }
 
     /* placeholder */
@@ -72,7 +73,6 @@ wui-select{
         position:absolute;
         top:calc(100% + 5px);
         flex-direction:column;
-        background-color:var(--wui-taupe-gray);
         width:100%;
         display:flex;
         max-height:0;
@@ -94,6 +94,7 @@ wui-select{
             /* item btn */
             button{
                 padding:5px;
+                background-color:var(--wui-taupe-gray);
     
                 &[selected]{
                     font-weight:bold;
