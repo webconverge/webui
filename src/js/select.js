@@ -2,7 +2,7 @@
 
 /*
 
-    html template
+    --html template--
 
 */
 
@@ -13,12 +13,12 @@
             <span></span>
             <i class="fa-solid fa-chevron-down"></i>
         </button>
-        <ul>
-            <li><button>one</button></li>
-            <li><button>two</button></li>
-            <li><button>three</button></li>
-            <li><button>four</button></li>
-        </ul>
+        <div>
+            <button>one</button>
+            <button>two</button>
+            <button>three</button>
+            <button>four</button>
+        </div>
     </wui-select>
 
 */
@@ -27,23 +27,23 @@
 
 /*
 
-    script
+    --logic--
 
 */
 
 export default function select(ref){
 
-    const itemList = ref.querySelector("ul")
+    const itemList = ref.querySelector("div")
 
     const icon = ref.querySelector("i")
 
-    let currentItem = ref.querySelector("li:first-child button")
+    let currentItem = ref.querySelector("div button:first-child ")
     
     currentItem.setAttribute("selected", "")
     
-    ref.querySelector("&>button > span").innerHTML = currentItem.innerHTML
+    ref.querySelector("button > span").innerHTML = currentItem.innerHTML
     
-    ref.querySelectorAll("li button").forEach(item => {
+    ref.querySelectorAll("div button").forEach(item => {
        
         item.addEventListener("click", ()=>{
 
@@ -57,11 +57,11 @@ export default function select(ref){
 
             currentItem.setAttribute("selected", "")
 
-            ref.querySelector("&>button > span").innerHTML = currentItem.innerHTML
+            ref.querySelector("button > span").innerHTML = currentItem.innerHTML
         })
     })
 
-    ref.querySelector("&>button").addEventListener("click", ()=>{
+    ref.querySelector("button").addEventListener("click", ()=>{
 
         if(itemList.hasAttribute("open") && icon.hasAttribute("open")){
             

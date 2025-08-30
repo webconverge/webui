@@ -23,6 +23,8 @@ import select from "./js/select.js"
 
 import nav_00 from "./js/nav-00.js"
 
+import sectionTracker from "./js/sectionTracker.js"
+
 
 
 // initialize component logic
@@ -36,6 +38,10 @@ document.querySelectorAll("wui-nav-00").forEach(comp => {
 
     nav_00(comp)
 })
+
+window.wuiapi = {
+    sectionTracker:sectionTracker
+}
 
 
 

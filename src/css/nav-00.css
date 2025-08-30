@@ -2,7 +2,7 @@
 
 /*
 
-    html template
+    --html template--
 
 */
 
@@ -13,11 +13,11 @@
         <div></div>
         <div>
             <button><i class="fa-solid fa-xmark"></i></button>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+            <div>
+                <a href="#">Home</a>
+                <a href="#">About</a>>
+                <a href="#">Contact</a>
+            </div>
         </div>
         <button><i class="fa-solid fa-bars"></i></button>
     </wui-nav-00>
@@ -25,9 +25,27 @@
 
 */
 
+
+
 /*
 
-    style
+    --style--
+
+        --output
+            comp > div:last-of-type - attribute : mobile
+                happens when the screen size is less that 800px
+            
+            comp > div:last-of-type - attribute : nav-open
+                happens when the navigation is showing up, after clicking on the hamburger icon
+
+            comp > div:last-of-type div - attribute : mobile
+                happens when the screen size is less that 800px
+            
+            comp > div:first-of-type - attribute : nav-open
+                happens when the navigation is showing up, after clicking on the hamburger icon
+
+            comp button (both icon) - attribute : mobile
+                happens when the screen size is less that 800px
 
 */
 
@@ -48,9 +66,6 @@ wui-nav-00{
     *{
         padding:0;
         margin:0;
-    }
-    li{
-        list-style-type:none;
     }
     a{
         text-decoration:none;
@@ -86,17 +101,6 @@ wui-nav-00{
             box-sizing:border-box;
             background-color:var(--wui-taupe-gray);
             height:100vh;
-            /* z-index:1; */
-
-            /* nav-item */
-            li{
-                text-align:center;
-                
-                &:hover{
-                    color:var(--wui-light-cyan);
-                }
-            }
-
         }
         
         &[nav-open]{
@@ -107,23 +111,31 @@ wui-nav-00{
         button{
             align-self:end;
         }
-    }
 
-    /* nav */
-    ul{
-        display:flex;
-        gap:20px;
+        /* nav */
+        div{
+            display:flex;
+            gap:20px;
 
-        &[mobile]{
-            flex-direction:column;
-        }
-    }
+            a{
+                font-size:1.2rem;
 
-    /* nav item */
-    li{
-        font-size:1.2rem;
-        &:hover{
-            color:var(--wui-taupe-gray);
+                &:hover{
+                    color:var(--wui-taupe-gray);
+                }
+            }
+
+            &[mobile]{
+                flex-direction:column;
+
+                a{
+                    align-self:center;
+
+                    &:hover{
+                        color:var(--wui-aquamarine-2);
+                    }
+                }
+            }
         }
     }
 
@@ -146,7 +158,6 @@ wui-nav-00{
     button[mobile]{
         display:initial;
     }
-
 
 
 }

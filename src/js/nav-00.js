@@ -1,7 +1,7 @@
 
 /*
 
-    html template
+    --html template--
 
 */
 
@@ -12,11 +12,11 @@
         <div></div>
         <div>
             <button><i class="fa-solid fa-xmark"></i></button>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+            <div>
+                <a href="#">Home</a>
+                <a href="#">About</a>>
+                <a href="#">Contact</a>
+            </div>
         </div>
         <button><i class="fa-solid fa-bars"></i></button>
     </wui-nav-00>
@@ -24,9 +24,11 @@
 
 */
 
+
+
 /*
 
-    script
+    --logic--
 
 */
 
@@ -34,7 +36,7 @@ export default function nav_00(ref){
 
     const navWrapper = ref.querySelector("&>div:last-of-type")
     
-    const nav = ref.querySelector("ul")
+    const nav = ref.querySelector("&>div:last-of-type div")
 
     const navClose = ref.querySelector("&>div:last-of-type button")
 
@@ -61,6 +63,9 @@ export default function nav_00(ref){
                     if(navWrapper.hasAttribute("nav-open")) navWrapper.removeAttribute("nav-open")
         
                     if(pageOverlay.hasAttribute("nav-open")) pageOverlay.removeAttribute("nav-open")
+
+                    document.body.style.overflow = ""
+
                 }
                 else{
                     
@@ -83,6 +88,8 @@ export default function nav_00(ref){
         if(!navWrapper.hasAttribute("nav-open")) navWrapper.setAttribute("nav-open", "")
         
         if(!pageOverlay.hasAttribute("nav-open")) pageOverlay.setAttribute("nav-open", "")
+
+        document.body.style.overflow = "hidden"
     })
     
     navClose.addEventListener("click", ()=>{
@@ -90,6 +97,8 @@ export default function nav_00(ref){
         if(navWrapper.hasAttribute("nav-open")) navWrapper.removeAttribute("nav-open")
         
         if(pageOverlay.hasAttribute("nav-open")) pageOverlay.removeAttribute("nav-open")
+
+        document.body.style.overflow = ""
     })
 
     pageOverlay.addEventListener("click", e => {
@@ -99,10 +108,12 @@ export default function nav_00(ref){
             if(navWrapper.hasAttribute("nav-open")) navWrapper.removeAttribute("nav-open")
         
             if(pageOverlay.hasAttribute("nav-open")) pageOverlay.removeAttribute("nav-open")
+
+            document.body.style.overflow = ""
         }
     })
 
-    ref.querySelectorAll("ul a").forEach(item => {
+    ref.querySelectorAll("&>div:last-of-type a").forEach(item => {
 
         item.addEventListener("click", ()=>{
 
@@ -110,6 +121,7 @@ export default function nav_00(ref){
         
             if(pageOverlay.hasAttribute("nav-open")) pageOverlay.removeAttribute("nav-open")
 
+            document.body.style.overflow = ""
         })
     })
 }

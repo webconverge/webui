@@ -2,7 +2,7 @@
 
 /*
 
-    html template
+    --html template--
 
 */
 
@@ -13,12 +13,12 @@
             <span></span>
             <i class="fa-solid fa-chevron-down"></i>
         </button>
-        <ul>
-            <li><button>one</button></li>
-            <li><button>two</button></li>
-            <li><button>three</button></li>
-            <li><button>four</button></li>
-        </ul>
+        <div>
+            <button>one</button>
+            <button>two</button>
+            <button>three</button>
+            <button>four</button>
+        </div>
     </wui-select>
 
 */
@@ -27,7 +27,18 @@
 
 /*
 
-    style
+    --style--
+
+    --output
+        comp > button - attribute : open
+            happens when click to open drop down
+
+        comp > div attribute : open
+            happens when click to open drop down
+
+        comp > div > button - attribute : selected
+            happens when item is selected
+
 
 */
 
@@ -40,9 +51,6 @@ wui-select{
     *{
         padding:0;
         margin:0;
-    }
-    li{
-        list-style-type:none;
     }
     button{
         border-width:0;
@@ -69,7 +77,7 @@ wui-select{
     }
 
     /* item list */
-    ul{
+    div{
         position:absolute;
         top:calc(100% + 5px);
         flex-direction:column;
@@ -84,27 +92,18 @@ wui-select{
         }
 
         /* item */
-        li{
-            display:contents;
+        button{
+            padding:5px;
+            background-color:var(--wui-taupe-gray);
 
-            &:not(:last-child) > button{
-                border-bottom:1px solid var(--wui-rosy-brown);
+            &[selected]{
+                font-weight:bold;
+                background-color:var(--wui-rosy-brown);
             }
 
-            /* item btn */
-            button{
-                padding:5px;
-                background-color:var(--wui-taupe-gray);
-    
-                &[selected]{
-                    font-weight:bold;
-                    background-color:var(--wui-rosy-brown);
-                }
-    
-                &:hover{
-                    font-weight:bold;
-                    background-color:var(--wui-rosy-brown);
-                }
+            &:hover{
+                font-weight:bold;
+                background-color:var(--wui-rosy-brown);
             }
         }
     }
